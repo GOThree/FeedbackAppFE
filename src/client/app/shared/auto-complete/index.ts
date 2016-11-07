@@ -1,3 +1,1 @@
-/**
- * Created by vlad0 on 11/7/2016.
- */
+export * from './auto-complete.component'
