@@ -7,6 +7,7 @@ import { ToolbarComponent } from './toolbar/index';
 import { NavbarComponent } from './navbar/index';
 import { NameListService } from './name-list/index';
 import {AutoCompleteComponent} from "./auto-complete/auto-complete.component";
+import {EmailComponent} from "./email/email.component";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -14,9 +15,9 @@ import {AutoCompleteComponent} from "./auto-complete/auto-complete.component";
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [ToolbarComponent, NavbarComponent, AutoCompleteComponent],
+  declarations: [ToolbarComponent, NavbarComponent, AutoCompleteComponent, EmailComponent],
   exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule, AutoCompleteComponent]
+    CommonModule, FormsModule, RouterModule, AutoCompleteComponent, EmailComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
