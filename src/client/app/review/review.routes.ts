@@ -3,7 +3,7 @@ import {ReviewComponent} from "./review.component";
 
 export const ReviewRoutes: Route[] = [
   {
-    path: 'review',
+    path: 'review/:id',
     component: ReviewComponent
   }
 ];
