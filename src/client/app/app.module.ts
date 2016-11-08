@@ -12,9 +12,19 @@ import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AuthGuard } from './login/auth.guard';
+import {ReviewModule} from "./review/review.module";
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule, HomeModule, LoginModule, SharedModule.forRoot()],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
+    SharedModule.forRoot(),
+    AboutModule,
+    HomeModule,
+    LoginModule,
+    ReviewModule
+  ],
   declarations: [AppComponent],
   providers: [
     {
