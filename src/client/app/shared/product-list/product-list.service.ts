@@ -3,7 +3,8 @@ import {MENU} from "./index";
 
 @Injectable()
 export class MenuService{
-  getMenu(): Promise<any> {
+  getProductList(id: number): Promise<any> {
+    MENU.push(id);
     return Promise.resolve(MENU);
   }
 }
