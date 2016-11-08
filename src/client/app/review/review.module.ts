@@ -4,6 +4,7 @@ import {ReviewComponent} from "./review.component";
 import {SharedModule} from "../shared/shared.module";
 import {MenuItemsComponent} from "./menu-items/menu-items.component";
 import {ReviewDetailsComponent} from "./review-details/review-details.component";
+import {ItemsReviewComponent} from "./items-review/items-review.component";
 
 @NgModule({
   imports: [SharedModule],
@@ -11,13 +12,15 @@ import {ReviewDetailsComponent} from "./review-details/review-details.component"
     CategoriesPaneComponent,
     ReviewComponent,
     MenuItemsComponent,
-    ReviewDetailsComponent
+    ReviewDetailsComponent,
+    ItemsReviewComponent
   ],
   exports: [
     CategoriesPaneComponent,
     ReviewComponent,
     MenuItemsComponent,
-    ReviewDetailsComponent
+    ReviewDetailsComponent,
+    ItemsReviewComponent
   ]
 })
 export class ReviewModule {}
