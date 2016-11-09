@@ -1,7 +1,7 @@
 <div>
   <h1>Review Component</h1>
   <h2>Menu Service</h2>
-  <div *ngFor="let item of menu">{{item}}</div>
+  <div *ngFor="let product of productList?.items">{{product.title}}</div>
   <categories-pane></categories-pane>
   <auto-complete></auto-complete>
   <menu-items></menu-items>
