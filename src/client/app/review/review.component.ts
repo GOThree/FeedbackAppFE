@@ -1,21 +1,22 @@
 import {Component} from '@angular/core';
-import {MenuService} from "../shared/product-list/index";
+import {ProductListService} from "../shared/product-list/index";
 import {ActivatedRoute, Params} from '@angular/router'
 
 @Component({
   moduleId: module.id,
   selector: 'review',
   templateUrl: 'review.component.html',
-  providers: [MenuService]
+  providers: [ProductListService]
 })
 
 export class ReviewComponent implements OnInit {
-  constructor(private menuService:MenuService,
+  constructor(private menuService:ProductListService,
               private route:ActivatedRoute) {
   }
 
   getProductList(id: number):void {
-    this.menuService.getProductList(id).then(menu => this.menu = menu);
+    this.menuService.getProductList(id).then(productList => {
+      this.productList = productList});
   }
 
   ngOnInit():void {
