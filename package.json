@@ -37,7 +37,7 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
-  "author": "Minko Gechev <mgechev>",
+  "author": "GoThree",
   "license": "MIT",
   "devDependencies": {
     "@angular/compiler-cli": "~2.1.2",
