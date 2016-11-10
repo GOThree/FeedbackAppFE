@@ -1,13 +1,13 @@
 <div class="panel panel-info register-form">
   <div class="panel-heading">Register</div>
   <div class="panel-body">
-    <form [formGroup]="registerForm" (ngSubmit)="login(registerForm.value)">
-      <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['firstName'].valid && registerForm.controls['firstName'].touched}">
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+      <div class="form-group" [ngClass]="{'has-error':!registerForm.controls.firstName.valid && registerForm.controls.firstName.touched}">
         <div class="input-group">
           <span class="input-group-addon" >#</span>
-          <input class="form-control" type="text" placeholder="first name" [formControl]="registerForm.controls['firstName']">
+          <input class="form-control" type="text" placeholder="first name" [formControl]="registerForm.controls.firstName">
         </div>
-        <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['firstName'].valid && registerForm.controls['firstName'].touched && registerForm.controls['firstName'].errors.required">You must enter first name.</div>
+        <div i18n class="alert alert-danger" *ngIf="!registerForm.controls.firstName.valid && registerForm.controls.firstName.touched && registerForm.controls.firstName.errors.required">You must enter first name.</div>
       </div>
       <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['lastName'].valid && registerForm.controls['lastName'].touched}">
         <div class="input-group">
@@ -24,12 +24,20 @@
         <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched && registerForm.controls['email'].errors.required">You must enter email.</div>
         <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched && registerForm.controls['email'].errors.pattern">Invalid Email.</div>
       </div>
-      <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['password'].valid && registerForm.controls['password'].touched}">
+      <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['passwords'].controls['password'].valid && registerForm.controls['passwords'].controls['password'].touched}">
         <div class="input-group">
           <span class="input-group-addon">#</span>
-          <input class="form-control" type="password" placeholder="Password" [formControl]="registerForm.controls['password']">
+          <input class="form-control" type="password" placeholder="Password" [formControl]="registerForm.controls['passwords'].controls['password']">
         </div>
-        <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">You must enter password.</div>
+        <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['passwords'].controls['password'].valid && registerForm.controls['passwords'].controls['password'].touched">You must enter password.</div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['passwords'].controls['confirmPassword'].valid && registerForm.controls['passwords'].controls['confirmPassword'].touched}">
+        <div class="input-group">
+          <span class="input-group-addon">#</span>
+          <input class="form-control" type="password" placeholder="Confirm Password" [formControl]="registerForm.controls['passwords'].controls['confirmPassword']">
+        </div>
+        <div i18n class="alert alert-danger" *ngIf="!registerForm.controls['passwords'].controls['confirmPassword'].valid && registerForm.controls['passwords'].controls['confirmPassword'].touched">You must enter password.</div>
+        <div i18n class="alert alert-danger" *ngIf="registerForm.controls['passwords'].errors && !registerForm.controls['passwords'].errors.areEqual && registerForm.controls['passwords'].controls['confirmPassword'].touched && registerForm.controls['passwords'].controls['password'].touched">Passwords don't match.</div>
       </div>
       <div class="form-group">
         <button i18n type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
