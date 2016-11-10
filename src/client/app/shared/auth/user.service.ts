@@ -29,6 +29,27 @@ export class UserService {
         return res.success;
       });
   }
+
+    register(firstName: string, lastName: string, email: string, password: string, confirmPassword: string) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        '/register', 
+        JSON.stringify({ firstName, lastName, email, password, confirmPassword }), 
+        { headers }
+      )
+      .map(res => res.json())
+      .map((res) => {
+        if (res.success) {
+          localStorage.setItem('auth_token', res.auth_token);
+          this.loggedIn = true;
+        }
+
+        return res.success;
+      });
+  }
   
   logout() {
     localStorage.removeItem('auth_token');
