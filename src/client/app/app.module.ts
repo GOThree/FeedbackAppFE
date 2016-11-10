@@ -10,6 +10,7 @@ import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
+import { ForgotPasswordModule } from './forgotpassword/forgotpassword.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -25,7 +26,8 @@ import {ReviewModule} from "./review/review.module";
     HomeModule,
     LoginModule,
     RegisterModule,
-    ReviewModule
+    ReviewModule,
+    ForgotPasswordModule
   ],
   declarations: [AppComponent],
   providers: [

@@ -50,6 +50,22 @@ export class UserService {
         return res.success;
       });
   }
+
+    forgotPassword(email: string) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        '/forgotpassword', 
+        JSON.stringify({ email }), 
+        { headers }
+      )
+      .map(res => res.json())
+      .map((res) => {
+        return res.success;
+      });
+  }
   
   logout() {
     localStorage.removeItem('auth_token');
