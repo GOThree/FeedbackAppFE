@@ -21,7 +21,6 @@ export class LoginComponent {
 
   login(value: any) {
     console.log(value);
-    // this.router.navigate(['']);
     // this.userService.login(email, password).subscribe((result) => {
     //   if (result) {
     //     this.router.navigate(['']);
