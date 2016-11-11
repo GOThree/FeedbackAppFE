@@ -10,6 +10,7 @@ import {AutoCompleteComponent} from "./auto-complete/auto-complete.component";
 import {EmailComponent} from "./email/email.component";
 import {PhoneComponent} from "./phone/phone.component";
 import {CommentComponent} from "./comment/comment.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -17,9 +18,9 @@ import {CommentComponent} from "./comment/comment.component";
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [ToolbarComponent, NavbarComponent, AutoCompleteComponent, EmailComponent, PhoneComponent, CommentComponent],
+  declarations: [ToolbarComponent, NavbarComponent, AutoCompleteComponent, EmailComponent, PhoneComponent, CommentComponent, PageNotFoundComponent],
   exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule, AutoCompleteComponent, EmailComponent, PhoneComponent, CommentComponent]
+    CommonModule, FormsModule, RouterModule, AutoCompleteComponent, EmailComponent, PhoneComponent, CommentComponent, PageNotFoundComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
