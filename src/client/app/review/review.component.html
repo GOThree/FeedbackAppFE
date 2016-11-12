@@ -1,14 +1,12 @@
 <div class="container-fluid">
   <h1>Review Component</h1>
-  <!--<h2>Menu Service</h2>-->
-  <!--<div *ngFor="let product of productList?.items">{{product.title}}</div>-->
+  <h2>Menu Service</h2>
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm">
       <categories-pane></categories-pane>
     </div>
     <div class="col-md-6 col-xs-6">
-      <auto-complete></auto-complete>
-      <menu-items></menu-items>
+      <product-items [productList]="productList"></product-items>
     </div>
     <div class="col-md-3 col-xs-6">
       <review-details></review-details>
