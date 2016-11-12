@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ProductListService} from "../shared/product-list/index";
 import {ActivatedRoute, Params} from '@angular/router'
+import {ProductList} from "../shared/models/product-list";
 
 @Component({
   moduleId: module.id,
@@ -10,6 +11,8 @@ import {ActivatedRoute, Params} from '@angular/router'
 })
 
 export class ReviewComponent implements OnInit {
+  productList:ProductList
+  test:string = "My test";
   constructor(private menuService:ProductListService,
               private route:ActivatedRoute) {
   }
