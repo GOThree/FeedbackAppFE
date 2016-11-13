@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChange} from '@angular/core'
+import {Component, Input, OnChanges, SimpleChange, OnInit} from '@angular/core'
 import {ProductList, ProductCategory} from "../../shared/models/index";
 import {FormControl} from '@angular/forms';
 

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductListService} from "../shared/product-list/index";
 import {ActivatedRoute, Params} from '@angular/router'
 import {ProductList} from "../shared/models/product-list";
