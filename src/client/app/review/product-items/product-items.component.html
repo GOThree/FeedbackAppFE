@@ -1,9 +1,10 @@
 <h1>Menu Items Component</h1>
 <div class="input-group">
   <span class="input-group-addon glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
-  <input [(ngModel)]="filter" type="text" class="form-control" placeholder="Search dishes..." aria-describedby="sizing-addon2"/>
+  <input type="text" [formControl]="term" class="form-control" placeholder="Search dishes..." aria-describedby="sizing-addon2"/>
 </div>
-<div *ngFor="let product of productList?.items">{{product.title}}</div>
+{{filter}}
+<div *ngFor="let product of productList?.items" >{{product.title}}</div>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-primary">
