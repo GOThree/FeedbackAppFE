@@ -1,6 +1,7 @@
 import {ProductListItem} from "./product-list-item";
+import {ProductCategory} from "./product-category";
 
 export class ProductList {
-  constructor(public items:ProductListItem[], public title:string = "Test") {
+  constructor(public title:string = "Test", public categories:ProductCategory[]) {
   }
 }
