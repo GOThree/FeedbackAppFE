@@ -5,9 +5,10 @@ import {SharedModule} from "../shared/shared.module";
 import {ProductItemsComponent} from "./product-items/product-items.component";
 import {ReviewDetailsComponent} from "./review-details/review-details.component";
 import {ItemsReviewComponent} from "./items-review/items-review.component";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [SharedModule, ReactiveFormsModule],
   declarations: [
     CategoriesPaneComponent,
     ReviewComponent,
