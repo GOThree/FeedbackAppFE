@@ -1,4 +1,7 @@
+import {ProductListItem} from "./product-list-item";
 export class ProductCategory {
-  constructor(public title:string) {
+  public cachedItems:ProductListItem[];
+
+  constructor(public title:string, public items:ProductListItem[]) {
   }
 }
