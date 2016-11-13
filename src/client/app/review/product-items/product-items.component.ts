@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, SimpleChange} from '@angular/core'
-import {ProductList, ProductListItem} from "../../shared/models/index";
+import {ProductList, ProductCategory} from "../../shared/models/index";
 import {FormControl} from '@angular/forms';
 
 @Component({
@@ -11,20 +11,28 @@ export class ProductItemsComponent implements OnChanges, OnInit {
   @Input() productList:ProductList;
 
   term = new FormControl();
-  private _items:ProductListItem[];
+  private _categories:ProductCategory[];
 
   ngOnInit() {
     this.term.valueChanges
       .subscribe(value => {
-        // cache into _items since the
-        // productList.items gonna be filtered
-        if (!this._items) {
-          this._items = this.productList.items.slice();
+        // cache into _categories since the
+        // productList.categories is going to be filtered
+        if (!this._categories) {
+          this._categories = this.productList.categories.slice();
         }
 
         // filter items that the title contains the value.
-        this.productList.items = this._items.filter(function (obj) {
-          return obj.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+        this.productList.categories = this._categories.map(function (category) {
+          if(!category.cachedItems) {
+            category.cachedItems = category.items.slice();
+          }
+
+          category.items = category.cachedItems.filter(function(item) {
+            return item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase());
+          })
+
+          return category;
         });
       });
   }

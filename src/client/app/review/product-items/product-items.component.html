@@ -1,62 +1,70 @@
 <h1>Menu Items Component</h1>
+<h1>{{productList?.title}}</h1>
 <div class="input-group">
   <span class="input-group-addon glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
-  <input type="text" [formControl]="term" class="form-control" placeholder="Search dishes..." aria-describedby="sizing-addon2"/>
+  <input type="text" [formControl]="term" class="form-control" placeholder="Search dishes..."
+         aria-describedby="sizing-addon2"/>
 </div>
-{{filter}}
-<div *ngFor="let product of productList?.items" >{{product.title}}</div>
-
+<!--{{productList | json }}-->
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-primary">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true"
-          aria-controls="collapseOne">
-        Salads
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        <h4>Salad 1</h4><h4>Salad 2</h4><h4>Salad 3</h4><h4>Salad 4</h4><h4>Salad 5</h4>
+  <div *ngFor="let category of productList?.categories; let i = index">
+    <div class="panel panel-primary">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <!--the data target should include char '#'-->
+        <h4 class="panel-title" role="button" data-toggle="collapse" [attr.data-target]="'#' + category.title + index" aria-expanded="true"
+            aria-controls="collapseOne">
+          {{category.title}}
+        </h4>
       </div>
-    </div>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false"
-          aria-controls="collapseTwo">
-        Pizza
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        <h4>Pizza 1</h4><h4>Pizza 2</h4><h4>Pizza 3</h4><h4>Pizza 4</h4><h4>Pizza 5</h4>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false"
-          aria-controls="collapseThree">
-        Pasta
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        <h4>Pasta 1</h4><h4>Pasta 2</h4><h4>Pasta 3</h4><h4>Pasta 4</h4><h4>Pasta 5</h4>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false"
-          aria-controls="collapseThree">
-        Steaks
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        <h4>Steak 1</h4><h4>Steak 2</h4><h4>Steak 3</h4><h4>Steak 4</h4><h4>Steak 5</h4>
+      <div id="{{category.title + index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <div *ngFor="let item of category.items">
+            <h4>{{item.title}}</h4>
+          </div>
+          <!--<div><h4>Salad 1</h4></div><h4>Salad 2</h4><h4>Salad 3</h4><h4>Salad 4</h4><h4>Salad 5</h4>-->
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading" role="tab" id="headingTwo">-->
+<!--<h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false"-->
+<!--aria-controls="collapseTwo">-->
+<!--Pizza-->
+<!--</h4>-->
+<!--</div>-->
+<!--<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">-->
+<!--<div class="panel-body">-->
+<!--<h4>Pizza 1</h4><h4>Pizza 2</h4><h4>Pizza 3</h4><h4>Pizza 4</h4><h4>Pizza 5</h4>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading" role="tab" id="headingThree">-->
+<!--<h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false"-->
+<!--aria-controls="collapseThree">-->
+<!--Pasta-->
+<!--</h4>-->
+<!--</div>-->
+<!--<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">-->
+<!--<div class="panel-body">-->
+<!--<h4>Pasta 1</h4><h4>Pasta 2</h4><h4>Pasta 3</h4><h4>Pasta 4</h4><h4>Pasta 5</h4>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading" role="tab" id="headingFour">-->
+<!--<h4 class="panel-title" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false"-->
+<!--aria-controls="collapseThree">-->
+<!--Steaks-->
+<!--</h4>-->
+<!--</div>-->
+<!--<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">-->
+<!--<div class="panel-body">-->
+<!--<h4>Steak 1</h4><h4>Steak 2</h4><h4>Steak 3</h4><h4>Steak 4</h4><h4>Steak 5</h4>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
