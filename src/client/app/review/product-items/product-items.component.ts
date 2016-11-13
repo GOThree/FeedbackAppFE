@@ -29,7 +29,8 @@ export class ProductItemsComponent implements OnChanges, OnInit {
           }
 
           category.items = category.cachedItems.filter(function(item) {
-            return item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase());
+            return item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+              || item.description.toLocaleLowerCase().includes(value.toLocaleLowerCase());
           })
 
           return category;
