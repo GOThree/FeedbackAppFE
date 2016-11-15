@@ -36,7 +36,7 @@ export class UserService {
 
     return this.http
       .post(
-        '/register', 
+        'http://localhost:5000/account/register', 
         JSON.stringify({ firstName, lastName, email, password, confirmPassword }), 
         { headers }
       )
