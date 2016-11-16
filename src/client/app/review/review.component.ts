@@ -13,12 +13,12 @@ import {ProductList} from "../shared/models/product-list";
 export class ReviewComponent implements OnInit {
   productList:ProductList
   test:string = "My test";
-  constructor(private menuService:ProductListService,
+  constructor(private productListService:ProductListService,
               private route:ActivatedRoute) {
   }
 
   getProductList(id: number):void {
-    this.menuService.getProductList(id).then(productList => {
+    this.productListService.getProductList(id).then(productList => {
       this.productList = productList});
   }
 
