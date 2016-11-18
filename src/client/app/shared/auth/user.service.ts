@@ -21,13 +21,13 @@ export class UserService {
         { headers }
       )
       .map((res) => {
-        console.log(res)
+        let body_as_json = res.json()
         if (res.ok) {
-          localStorage.setItem('access_token', res.toString());
+          localStorage.setItem('access_token', body_as_json.access_token);
           this.loggedIn = true;
         }
 
-        return res
+        return body_as_json
       });
   }
 

@@ -21,12 +21,14 @@ export class LoginComponent {
   }
 
   login(value: any) {
-    console.log(value);
-    console.log(this.userService)
     this.userService.login(value.email, value.password).
       subscribe(
-       data => this.toastr.success('Login Successful'),
-       err => this.toastr.error('Login Unsuccessful')
+       data => {
+         this.toastr.success('Login Successful');
+       },
+       err => {
+         this.toastr.error(err.json().error_description)
+       }
      );
   }
 }

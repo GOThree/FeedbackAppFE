@@ -40,7 +40,12 @@ export class RegisterComponent {
     this.userService.register(value.firstName, value.lastName, value.email, value.passwords.password, value.passwords.confirmPassword)
     .subscribe(
       data => this.toastr.success('Successful registration'),
-      err => this.toastr.error('Sorry, something went wrong. Please try again.')
+      err => {
+        let body = err.json()
+        let errorMessage = ''
+        Object.keys(body).forEach(key => errorMessage += body[key][0])
+        this.toastr.error(errorMessage)
+      }
     );
   }
 }

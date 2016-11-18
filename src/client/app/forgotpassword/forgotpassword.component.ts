@@ -22,8 +22,8 @@ export class ForgotPasswordComponent {
   forgotPassword(value: any) {
     this.userService.forgotPassword(value.email).
       subscribe(
-        data => this.toastr.success('Successful forgot password request'),
-        err => this.toastr.error('Malformed email address. Please try again.')
+        data => this.toastr.success('Successful forgot password request.'),
+        err => this.toastr.error('Something went wrong. Please try again.')
       );
   }
 }
