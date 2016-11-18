@@ -24,11 +24,10 @@ export class LoginComponent {
     this.userService.login(value.email, value.password).
       subscribe(
        data => {
-         this.toastr.success('Login Successful');
+         this.toastr.success('Login Successful')
+         this.userService.userInfo().subscribe()
        },
-       err => {
-         this.toastr.error(err.json().error_description)
-       }
+       err => this.toastr.error(err.json().error_description)
      );
   }
 }

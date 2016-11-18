@@ -12,6 +12,7 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ForgotPasswordModule } from './forgotpassword/forgotpassword.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClient } from './shared/auth/http.client';
 
 import { AuthGuard } from './shared/auth/auth.guard';
 import {ReviewModule} from "./review/review.module";
@@ -35,7 +36,8 @@ import {ReviewModule} from "./review/review.module";
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>',
     },
-    AuthGuard
+    AuthGuard,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 
