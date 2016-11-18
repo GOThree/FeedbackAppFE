@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
@@ -11,26 +12,26 @@ export class UserService {
 
   login(email: string, password: string) {
     let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     return this.http
       .post(
-        '/login', 
-        JSON.stringify({ email, password }), 
+        'http://localhost:5000/authorization/login',
+        'username=' + email + '&password=' + password + '&grant_type=password',
         { headers }
       )
-      .map(res => res.json())
       .map((res) => {
-        if (res.success) {
-          localStorage.setItem('auth_token', res.auth_token);
+        console.log(res)
+        if (res.ok) {
+          localStorage.setItem('access_token', res.toString());
           this.loggedIn = true;
         }
 
-        return res.success;
+        return res
       });
   }
 
-    register(firstName: string, lastName: string, email: string, password: string, confirmPassword: string) {
+    register(firstName: string, lastName: string, email: string, password: string, confirmPassword: string): Observable<any> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -40,15 +41,7 @@ export class UserService {
         JSON.stringify({ firstName, lastName, email, password, confirmPassword }), 
         { headers }
       )
-      .map(res => res.json())
-      .map((res) => {
-        if (res.success) {
-          localStorage.setItem('auth_token', res.auth_token);
-          this.loggedIn = true;
-        }
-
-        return res.success;
-      });
+      .map(res => res)
   }
 
     forgotPassword(email: string) {
@@ -57,14 +50,11 @@ export class UserService {
 
     return this.http
       .post(
-        '/forgotpassword', 
+        'http://localhost:5000/account/forgotpassword', 
         JSON.stringify({ email }), 
         { headers }
       )
-      .map(res => res.json())
-      .map((res) => {
-        return res.success;
-      });
+      .map(res => res)
   }
   
   logout() {

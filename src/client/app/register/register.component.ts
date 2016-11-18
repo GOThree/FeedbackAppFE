@@ -26,7 +26,6 @@ export class RegisterComponent {
   }
 
   areEqual(group: any) {
-    console.log('in are equal')
     if (group.controls.password.value && (group.controls.password.value == group.controls.confirmPassword.value)) {
         return null;
     }
@@ -38,11 +37,10 @@ export class RegisterComponent {
   }
 
   register(value: any) {
-    this.toastr.success('You are awesome!', 'Success!');
-    this.userService.register(value.firstName, value.lastName, value.email, value.passwords.password, value.passwords.confirmPassword).subscribe((result) => {
-      if (result) {
-        this.router.navigate(['']);
-      }
-    });
+    this.userService.register(value.firstName, value.lastName, value.email, value.passwords.password, value.passwords.confirmPassword)
+    .subscribe(
+      data => this.toastr.success('Successful registration'),
+      err => this.toastr.error('Sorry, something went wrong. Please try again.')
+    );
   }
 }
