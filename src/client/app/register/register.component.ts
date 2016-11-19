@@ -40,7 +40,10 @@ export class RegisterComponent {
   register(value: any) {
     this.userService.register(value.firstName, value.lastName, value.email, value.passwords.password, value.passwords.confirmPassword)
     .subscribe(
-      data => this.toastr.success('Successful registration'),
+      data => {
+        this.toastr.success('Successful registration');
+        this.router.navigate(['/login']);
+      },
       err => {
         let body = err.json()
         let errorMessage = ''
