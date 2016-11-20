@@ -28,4 +28,15 @@ export class ItemsReviewComponent implements OnChange {
   rate(listItem:ProductListItem):void {
     this.reviewService.rateItemFromItemsReview(listItem);
   }
+
+  removeItem(listItem: ProductListItem):void {
+    // set the rating to 0 so the Review Component
+    // can be updated
+    listItem.rating = 0;
+    this.rate(listItem);
+
+    // remove the item from the current list
+    var index = this.listItems.indexOf(listItem);
+    this.listItems.splice(index, 1);
+  }
 }
