@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserService } from './../shared/auth/user.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { VALIDATION_REGEX } from '../global.vars'
 
 @Component({
   moduleId: module.id,
@@ -13,7 +14,7 @@ export class RegisterComponent {
   registerForm : FormGroup;
 
   constructor(private userService: UserService, private router: Router, private fb: FormBuilder, private toastr: ToastsManager) {
-    let emailRegex = `([a-zA-Z0-9_.]{1}[a-zA-Z0-9_.]*)((@[a-zA-Z]{2}[a-zA-Z]*)[\\\.]([a-zA-Z]{2}|[a-zA-Z]{3}))`;
+    let emailRegex = VALIDATION_REGEX.email;
     this.registerForm = fb.group({
      'email' : [null, Validators.compose([Validators.pattern(emailRegex), Validators.required ])],
      'firstName' : [null, Validators.compose([Validators.required])],

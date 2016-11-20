@@ -21,9 +21,10 @@ export class HttpClient {
     });
   }
 
-  post(url: string, data: any, headers: Headers) {
+  post(url: string, data: any, headers?: Headers) {
     if(!headers) {
       headers = new Headers();
+      headers.append('Content-Type', 'application/json');
     }
 
     this.createAuthorizationHeader(headers);

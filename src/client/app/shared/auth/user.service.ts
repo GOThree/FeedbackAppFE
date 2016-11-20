@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Response } from '@angular/http';
 import { HttpClient } from './http.client'
+import { ENDPOINTS } from '../../global.vars'
 
 @Injectable()
 export class UserService {
@@ -16,7 +17,7 @@ export class UserService {
 
     return this.http
       .post(
-        'http://localhost:5000/authorization/login',
+        ENDPOINTS.login,
         'username=' + email + '&password=' + password + '&grant_type=password' + '&scope=openid email profile offline_access',
         headers
       )
@@ -31,34 +32,26 @@ export class UserService {
   }
 
   register(firstName: string, lastName: string, email: string, password: string, confirmPassword: string) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
     return this.http
       .post(
-        'http://localhost:5000/account/register', 
+        ENDPOINTS.register, 
         JSON.stringify({ firstName, lastName, email, password, confirmPassword }), 
-        headers
       )
       .map(res => res)
   }
 
   forgotPassword(email: string) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
     return this.http
       .post(
-        'http://localhost:5000/account/forgotpassword', 
-        JSON.stringify({ email }),
-        headers
+        ENDPOINTS.forgotpassword,
+        JSON.stringify({ email })
       )
       .map(res => res)
   }
 
   userInfo() {
     return this.http
-      .get('http://localhost:5000/account/userinfo')
+      .get(ENDPOINTS.userinfo)
       .map(res => {
         let body_as_json = res.json()
         if (res.ok) {
@@ -81,7 +74,6 @@ export class UserService {
   }
 
   isLoggedIn() {
-    console.log(this.loggedIn)
     return this.loggedIn;
   }
 }
