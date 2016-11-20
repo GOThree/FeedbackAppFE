@@ -6,9 +6,10 @@ import {ProductItemsComponent} from "./product-items/product-items.component";
 import {ReviewDetailsComponent} from "./review-details/review-details.component";
 import {ItemsReviewComponent} from "./items-review/items-review.component";
 import { ReactiveFormsModule } from '@angular/forms';
+import {RatingModule} from "ng2-rating";
 
 @NgModule({
-  imports: [SharedModule, ReactiveFormsModule],
+  imports: [SharedModule, ReactiveFormsModule, RatingModule],
   declarations: [
     CategoriesPaneComponent,
     ReviewComponent,

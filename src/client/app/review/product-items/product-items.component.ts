@@ -1,6 +1,8 @@
-import {Component, Input, OnChanges, SimpleChange, OnInit} from '@angular/core'
-import {ProductList, ProductCategory} from "../../shared/models/index";
+import {Component, Input, Output, OnChanges, OnInit, EventEmitter, SimpleChange} from '@angular/core'
+import {ProductList, ProductCategory, ProductListItem} from "../../shared/models/index";
 import {FormControl} from '@angular/forms';
+import { Subscription }   from 'rxjs/Subscription';
+import {ReviewService} from "../review.service";
 
 @Component({
   moduleId: module.id,
@@ -10,8 +12,30 @@ import {FormControl} from '@angular/forms';
 export class ProductItemsComponent implements OnChanges, OnInit {
   @Input() productList:ProductList;
 
+  // public props
   term = new FormControl();
+  subscription: Subscription;
+
+  // private props
   private _categories:ProductCategory[];
+
+  // public methods
+  rate(listItem:ProductListItem):void {
+    this.reviewService.rateItemFromProductList(listItem);
+  }
+
+  constructor(private reviewService: ReviewService) {
+    var self = this;
+    this.subscription = this.reviewService.itemsFromItemsReview$.subscribe(value => {
+      self.productList.categories.map((category) => {
+        var listItem = category.items.filter(item => {
+          return item.id ===  value.id;
+        });
+
+        listItem = value;
+      })
+    });
+  }
 
   ngOnInit() {
     this.term.valueChanges
@@ -24,11 +48,11 @@ export class ProductItemsComponent implements OnChanges, OnInit {
 
         // filter items that the title contains the value.
         this.productList.categories = this._categories.map(function (category) {
-          if(!category.cachedItems) {
+          if (!category.cachedItems) {
             category.cachedItems = category.items.slice();
           }
 
-          category.items = category.cachedItems.filter(function(item) {
+          category.items = category.cachedItems.filter(function (item) {
             return item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
               || item.description.toLocaleLowerCase().includes(value.toLocaleLowerCase());
           })

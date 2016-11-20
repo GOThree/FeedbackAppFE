@@ -17,6 +17,7 @@ export class ProjectConfig extends SeedConfig {
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
+    this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-rating': 'node_modules/ng2-rating/index.js'});
 
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
