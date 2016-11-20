@@ -5,6 +5,9 @@
   <div class="panel-body" *ngIf="listItems.length > 0">
     <div class="row" *ngFor="let item of listItems">
       {{item.title}}
+      <button (click)="removeItem(item)" type="button" class="btn btn-danger btn-xs">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
       <div>
         <rating [(ngModel)]="item.rating"
                 (click)="rate(item)"
