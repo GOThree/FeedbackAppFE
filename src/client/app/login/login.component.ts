@@ -27,6 +27,7 @@ export class LoginComponent {
        data => {
          this.toastr.success('Login Successful')
          this.userService.userInfo().subscribe()
+         this.router.navigate(['/']);
        },
        err => this.toastr.error(err.json().error_description)
      );
