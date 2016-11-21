@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Response } from '@angular/http';
+import { Headers, Response, URLSearchParams } from '@angular/http';
 import { HttpClient } from './http.client'
 import { ENDPOINTS } from '../../global.vars'
 
@@ -15,10 +15,17 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('username', email);
+    urlSearchParams.append('password', password);
+    urlSearchParams.append('grant_type', 'password');
+    urlSearchParams.append('scope', 'openid email profile offline_access');
+    let body = urlSearchParams.toString();
+
     return this.http
       .post(
         ENDPOINTS.login,
-        'username=' + email + '&password=' + password + '&grant_type=password' + '&scope=openid email profile offline_access',
+        body,
         headers
       )
       .map((res) => {
