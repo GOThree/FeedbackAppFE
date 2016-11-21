@@ -18,11 +18,14 @@ export class ProjectConfig extends SeedConfig {
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
 
+    this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-toastr': 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'});
+
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
        {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
        {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
+       {src: 'ng2-toastr/bundles/ng2-toastr.min.css', inject: true},
        {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
