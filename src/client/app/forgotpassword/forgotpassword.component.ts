@@ -22,7 +22,10 @@ export class ForgotPasswordComponent {
   forgotPassword(value: any) {
     this.userService.forgotPassword(value.email).
       subscribe(
-        data => this.toastr.success('Successful forgot password request.'),
+        data => {
+          this.toastr.success('Successful forgot password request.')
+          this.router.navigate(['login']);
+        },
         err => this.toastr.error('Something went wrong. Please try again.')
       );
   }
