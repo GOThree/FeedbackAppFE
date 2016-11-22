@@ -20,6 +20,9 @@ export class ProjectConfig extends SeedConfig {
     this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-rating': 'node_modules/ng2-rating/index.js'});
 
     this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-toastr': 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'});
+    this.mergeObject(this.SYSTEM_CONFIG.paths, {'lodash': 'node_modules/lodash/lodash.min.js'});
+    this.mergeObject(this.SYSTEM_CONFIG.paths, {'jQuery': 'node_modules/jquery/dist/jquery.min.js'});
+    // this.mergeObject(this.SYSTEM_CONFIG.paths, {'AmCharts': 'node_modules/amcharts3/amcharts/amcharts.js'});
 
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
