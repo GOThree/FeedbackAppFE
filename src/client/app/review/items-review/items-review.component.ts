@@ -1,4 +1,4 @@
-import {Component, OnChange} from '@angular/core';
+import {Component, OnChange, Output, EventEmitter,Subscription} from '@angular/core';
 import {ReviewService} from "../review.service";
 import {ProductListItem} from "../../shared/models/product-list-item";
 
@@ -8,6 +8,8 @@ import {ProductListItem} from "../../shared/models/product-list-item";
   templateUrl: 'items-review.component.html'
 })
 export class ItemsReviewComponent implements OnChange {
+  @Output() items = new EventEmitter();
+
   subscription:Subscription;
   private listItems:ProductListItem[] = [];
 
@@ -21,6 +23,9 @@ export class ItemsReviewComponent implements OnChange {
       if (!broadcastedItem) {
         this.listItems.push(value);
       }
+
+      // emit the change in listItems
+      this.items.emit(this.listItems);
     })
   }
 
