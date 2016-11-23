@@ -1,11 +1,11 @@
 <!--REMOVE!!!!!!!!!!!!!!!-->
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">-->
 <!--REMOVE!!!!!!!!!!!!!!!-->
 
 <items-review (items)="items=$event"></items-review>
 <div i18n class="alert alert-danger"
-     *ngIf="items.length == 0 && form.valid">Invalid
-  Email.
+     *ngIf="items.length == 0 && form.valid">
+  Please rate at least one item.
 </div>
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
   <div class="form-group" [ngClass]="{'has-error':!form.controls.email.valid && form.controls.email.touched}">

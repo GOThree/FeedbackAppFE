@@ -28,6 +28,7 @@ export class ProjectConfig extends SeedConfig {
        {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
        {src: 'ng2-toastr/bundles/ng2-toastr.min.css', inject: true},
        {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
+      {src: 'font-awesome/css/font-awesome.min.css', inject: true},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
