@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 
 @Component({
   selector: 'ba-back-top',
-  styles: [require('./baBackTop.scss')],
+  styleUrls: ['./baBackTop.css'],
   template: `
     <i #baBackTop class="fa fa-angle-up back-top ba-back-top" title="Back to Top"></i>
   `

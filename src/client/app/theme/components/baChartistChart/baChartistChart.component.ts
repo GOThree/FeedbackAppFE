@@ -16,8 +16,8 @@ import { Chartist } from './baChartistChart.loader';
 @Component({
   selector: 'ba-chartist-chart',
   encapsulation: ViewEncapsulation.None,
-  styles: [require('chartist/dist/chartist.css'), require('./baChartistChart.scss')],
-  template: require('./baChartistChart.html'),
+  styleUrls: ['chartist.min.css', './baChartistChart.css'],
+  template: 'baChartistChart.html',
   providers: [],
 })
 export class BaChartistChart {

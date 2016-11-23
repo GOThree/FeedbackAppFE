@@ -22,31 +22,31 @@ import {
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader
-} from './components';
+} from './components/index';
 
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
 
 import {
   BaScrollPosition,
   BaThemeRun
-} from './directives';
+} from './directives/index';
 
 import {
   BaAppPicturePipe,
   BaKameleonPicturePipe,
   BaProfilePicturePipe
-} from './pipes';
+} from './pipes/index';
 
 import {
   BaImageLoaderService,
   BaThemePreloader,
   BaThemeSpinner
-} from './services';
+} from './services/index';
 
 import {
   EmailValidator,
   EqualPasswordsValidator
-} from './validators';
+} from './validators/index';
 
 const NGA_COMPONENTS = [
   BaBackTop,

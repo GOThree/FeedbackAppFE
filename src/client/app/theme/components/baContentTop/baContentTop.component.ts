@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'ba-content-top',
-  styles: [require('./baContentTop.scss')],
-  template: require('./baContentTop.html'),
+  styleUrls: ['./baContentTop.css'],
+  template: './baContentTop.html'
 })
 export class BaContentTop {
 

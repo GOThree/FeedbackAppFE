@@ -1,2 +1,2 @@
-export * from './baScrollPosition';
-export * from './baThemeRun';
+export * from './baScrollPosition/index';
+export * from './baThemeRun/index';
