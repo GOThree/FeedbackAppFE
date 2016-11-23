@@ -1,12 +1,38 @@
-<h1>Review Details Component</h1>
-<items-review></items-review>
-<email></email>
-<phone></phone>
-<comment></comment>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" value="">
-    I want to receive promotions
-  </label>
+<!--REMOVE!!!!!!!!!!!!!!!-->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<!--REMOVE!!!!!!!!!!!!!!!-->
+
+<items-review (items)="items=$event"></items-review>
+<div i18n class="alert alert-danger"
+     *ngIf="items.length == 0 && form.valid">Invalid
+  Email.
 </div>
-<button type="button" class="btn btn-primary btn-block">Primary</button>
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+  <div class="form-group" [ngClass]="{'has-error':!form.controls.email.valid && form.controls.email.touched}">
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input class="form-control" type="text" placeholder="email" [formControl]="form.controls.email">
+    </div>
+    <div i18n class="alert alert-danger"
+         *ngIf="!form.controls.email.valid && form.controls.email.touched && form.controls.email.errors.required">You
+      must enter email.
+    </div>
+    <div i18n class="alert alert-danger"
+         *ngIf="!form.controls.email.valid && form.controls.email.touched && form.controls.email.errors.pattern">Invalid
+      Email.
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea i18n [formControl]="form.controls.comment" rows="3" placeholder="comments"
+              class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label class="btn active form-control">
+      <input type="checkbox" [formControl]="form.controls.receivePromotions" hidden ><i class="fa fa-square-o fa-2x"></i><i
+      class="fa fa-check-square-o fa-2x"></i> <span> I want to receive promotions</span>
+    </label>
+  </div>
+  <div class="form-group">
+    <button i18n type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid || items.length == 0">Submit</button>
+  </div>
+</form>
