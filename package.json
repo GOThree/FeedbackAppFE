@@ -134,6 +134,7 @@
     "@types/lodash": "^4.14.39",
     "amcharts3": "github:amcharts/amcharts3",
     "ammap3": "github:amcharts/ammap3",
+    "animate.css": "^3.5.1",
     "bootstrap": "^3.3.7",
     "chartist": "^0.10.1",
     "@types/chartist": "",

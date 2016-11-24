@@ -1,5 +1,5 @@
 import { Component, ViewChild, HostListener, Input, ElementRef } from '@angular/core';
-import * as $ from 'jquery';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'ba-back-top',
@@ -22,13 +22,13 @@ export class BaBackTop {
 
   @HostListener('click')
   _onClick():boolean {
-    $('html, body').animate({scrollTop:0}, {duration:this.moveSpeed});
+    jQuery('html, body').animate({scrollTop:0}, {duration:this.moveSpeed});
     return false;
   }
 
   @HostListener('window:scroll')
   _onWindowScroll():void {
     let el = this._selector.nativeElement;
-    window.scrollY > this.position ? $(el).fadeIn(this.showSpeed) : $(el).fadeOut(this.showSpeed);
+    window.scrollY > this.position ? jQuery(el).fadeIn(this.showSpeed) : jQuery(el).fadeOut(this.showSpeed);
   }
 }
