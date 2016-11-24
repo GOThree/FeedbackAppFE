@@ -1,6 +1,6 @@
 import {Component, ViewChild, ViewEncapsulation, Input, Output, ElementRef, EventEmitter} from '@angular/core';
-
-import './baFullCalendar.loader';
+import * as jQuery from 'jquery';
+import * as fullCalendar from 'fullcalendar';
 
 @Component({
   selector: 'ba-full-calendar',
