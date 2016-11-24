@@ -11,7 +11,7 @@ import {
     OnDestroy,
 } from '@angular/core';
 
-import { Chartist } from './baChartistChart.loader';
+import * as Chartist from 'chartist';
 
 @Component({
   selector: 'ba-chartist-chart',
@@ -34,7 +34,7 @@ export class BaChartistChart {
   private chart: any;
 
   ngAfterViewInit() {
-    this.chart = new Chartist[this.baChartistChartType](this._selector.nativeElement, this.baChartistChartData, this.baChartistChartOptions, this.baChartistChartResponsive);
+    this.chart = new (<any>Chartist)[this.baChartistChartType](this._selector.nativeElement, this.baChartistChartData, this.baChartistChartOptions, this.baChartistChartResponsive);
     this.onChartReady.emit(this.chart);
   }
 

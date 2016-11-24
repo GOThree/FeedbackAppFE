@@ -136,6 +136,8 @@
     "ammap3": "github:amcharts/ammap3",
     "bootstrap": "^3.3.7",
     "chartist": "^0.10.1",
+    "@types/chartist": "",
+    "@types/fullcalendar": "",
     "core-js": "^2.4.1",
     "fullcalendar": "^3.0.1",
     "font-awesome": "^4.7.0",
