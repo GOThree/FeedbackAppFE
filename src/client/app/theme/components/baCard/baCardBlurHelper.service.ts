@@ -18,11 +18,11 @@ export class BaCardBlurHelper {
     return this.imageLoadSubject;
   }
 
-  public getBodyBgImageSizes():BgMetrics {
+  public getBodyBgImageSizes(): BgMetrics {
     let elemW = document.documentElement.clientWidth;
     let elemH = document.documentElement.clientHeight;
     if (elemW <= 640) {
-      return;
+      return {width: 0, height: 0, positionX: 0, positionY: 0};
     }
     let imgRatio = (this.image.height / this.image.width);       // original img ratio
     let containerRatio = (elemH / elemW);     // container ratio

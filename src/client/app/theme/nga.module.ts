@@ -12,12 +12,10 @@ import {
 } from './theme.configProvider';
 
 import {
-  BaBackTop,
   BaCard,
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
@@ -49,12 +47,10 @@ import {
 } from './validators/index';
 
 const NGA_COMPONENTS = [
-  BaBackTop,
   BaCard,
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,

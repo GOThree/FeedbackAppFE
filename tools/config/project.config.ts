@@ -45,6 +45,23 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+
+    this.addPackageBundles({
+      name: 'chartist',
+      path: 'node_modules/chartist/dist/chartist.js'
+    });
+    this.addPackageBundles({
+      name: 'bootstrap',
+      path: 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+    });
+    this.addPackageBundles({
+      name: 'lodash',
+      path: 'node_modules/lodash/lodash.min.js'
+    });
+    this.addPackageBundles({
+      name: 'ng2-toastr',
+      path: 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'
+    });
   }
 
 }
