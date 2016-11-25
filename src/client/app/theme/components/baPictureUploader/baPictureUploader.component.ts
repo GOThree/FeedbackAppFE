@@ -3,8 +3,8 @@ import {Ng2Uploader} from 'ng2-uploader/ng2-uploader';
 
 @Component({
   selector: 'ba-picture-uploader',
-  styleUrls: ['./baPictureUploader.css'],
-  template: './baPictureUploader.html',
+  styleUrls: ['baPictureUploader.css'],
+  template: 'baPictureUploader.html',
   providers: [Ng2Uploader]
 })
 export class BaPictureUploader {

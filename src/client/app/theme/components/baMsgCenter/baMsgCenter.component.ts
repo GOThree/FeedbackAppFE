@@ -5,8 +5,8 @@ import {BaMsgCenterService} from './baMsgCenter.service';
 @Component({
   selector: 'ba-msg-center',
   providers: [BaMsgCenterService],
-  styleUrls: ['./baMsgCenter.css'],
-  template: './baMsgCenter.html'
+  styleUrls: ['baMsgCenter.css'],
+  template: 'baMsgCenter.html'
 })
 export class BaMsgCenter {
 
