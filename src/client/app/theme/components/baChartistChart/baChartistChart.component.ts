@@ -16,7 +16,6 @@ import * as Chartist from 'chartist';
 @Component({
   selector: 'ba-chartist-chart',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['chartist.min.css', './baChartistChart.css'],
   template: 'baChartistChart.html',
   providers: [],
 })
