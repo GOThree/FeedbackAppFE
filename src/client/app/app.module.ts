@@ -23,7 +23,7 @@ import {NgaModule} from "./theme/nga.module";
     HttpModule,
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
-    NgaModule.forRoot(),
+    NgaModule,
     HomeModule,
     LoginModule,
     RegisterModule,
