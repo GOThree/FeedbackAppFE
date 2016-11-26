@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'ba-content-top',
   styleUrls: ['baContentTop.css'],
-  template: 'baContentTop.html'
+  templateUrl: 'baContentTop.html'
 })
 export class BaContentTop {
 

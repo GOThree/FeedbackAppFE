@@ -1,10 +1,10 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'ba-page-top',
   styleUrls: ['baPageTop.css'],
-  template: 'baPageTop.html',
-  encapsulation: ViewEncapsulation.None
+  templateUrl: 'baPageTop.html',
 })
 export class BaPageTop {
 

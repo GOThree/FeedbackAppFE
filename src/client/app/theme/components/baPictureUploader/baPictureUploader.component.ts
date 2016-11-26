@@ -2,9 +2,10 @@ import {Component, ViewChild, Input, Output, EventEmitter, ElementRef, Renderer}
 import {Ng2Uploader} from 'ng2-uploader/ng2-uploader';
 
 @Component({
+  moduleId: module.id,
   selector: 'ba-picture-uploader',
   styleUrls: ['baPictureUploader.css'],
-  template: 'baPictureUploader.html',
+  templateUrl: 'baPictureUploader.html',
   providers: [Ng2Uploader]
 })
 export class BaPictureUploader {
