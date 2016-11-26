@@ -16,7 +16,6 @@ import {
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader
@@ -51,7 +50,6 @@ const NGA_COMPONENTS = [
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader,
