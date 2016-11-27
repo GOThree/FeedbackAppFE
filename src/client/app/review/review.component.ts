@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductListService, ProductListItem} from "../shared/product-list/index";
+import {ProductListService} from "../shared/product-list/index";
 import {ActivatedRoute, Params} from '@angular/router'
 import {ProductList} from "../shared/models/product-list";
 import {ReviewService} from "./review.service";
