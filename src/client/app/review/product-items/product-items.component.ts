@@ -1,4 +1,4 @@
-import {Component, Input, Output, OnChanges, OnInit, EventEmitter, SimpleChange} from '@angular/core'
+import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core'
 import {ProductList, ProductCategory, ProductListItem} from "../../shared/models/index";
 import {FormControl} from '@angular/forms';
 import { Subscription }   from 'rxjs/Subscription';
