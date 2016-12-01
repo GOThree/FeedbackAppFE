@@ -15,6 +15,7 @@ import { HttpClient } from './shared/auth/http.client';
 
 import { AuthGuard } from './shared/auth/auth.guard';
 import {ReviewModule} from "./review/review.module";
+import {Locationmodule} from "./location/location.module";
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {ReviewModule} from "./review/review.module";
     LoginModule,
     RegisterModule,
     ReviewModule,
-    ForgotPasswordModule
+    ForgotPasswordModule,
+    Locationmodule
   ],
   declarations: [AppComponent],
   providers: [

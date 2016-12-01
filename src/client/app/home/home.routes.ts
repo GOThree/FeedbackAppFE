@@ -6,6 +6,6 @@ export const HomeRoutes: Route[] = [
   { 
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 ];
