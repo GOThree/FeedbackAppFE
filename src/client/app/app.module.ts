@@ -11,6 +11,7 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ForgotPasswordModule } from './forgotpassword/forgotpassword.module';
 import { SharedModule } from './shared/shared.module';
+import { ProfileModule } from './profile/profile.module';
 import { HttpClient } from './shared/auth/http.client';
 
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -28,7 +29,8 @@ import {NgaModule} from './theme/nga.module';
     LoginModule,
     RegisterModule,
     ReviewModule,
-    ForgotPasswordModule
+    ForgotPasswordModule,
+    ProfileModule
   ],
   declarations: [AppComponent],
   providers: [

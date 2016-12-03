@@ -4,7 +4,8 @@ export const ENDPOINTS = {
   login: host + '/authorization/login',
   register: host + '/account/register',
   forgotpassword: host + '/account/forgotpassword',
-  userinfo: host + '/account/userinfo'
+  userinfo: host + '/account/userinfo',
+  changePassword: host + '/account/changePassword'
 }
 
 export const VALIDATION_REGEX = {
