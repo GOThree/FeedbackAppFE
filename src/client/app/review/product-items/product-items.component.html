@@ -1,0 +1,36 @@
+<h1>{{productList?.title}}</h1>
+<div class="input-group">
+  <span class="input-group-addon glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+  <input type="text" [formControl]="term" class="form-control" placeholder="Search dishes..."
+         aria-describedby="sizing-addon2"/>
+</div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div *ngFor="let category of productList?.categories; let i = index">
+    <div *ngIf="category.items.length">
+      <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" role="button" data-toggle="collapse"
+             [attr.data-target]="'#' + category.title + i">
+          <!--the data target should include char '#'-->
+          <h4 class="panel-title" aria-expanded="true"
+              aria-controls="collapseOne">
+            {{category.title}}
+          </h4>
+        </div>
+        <div id="{{category.title + i}}" class="panel-collapse collapse in" role="tabpanel"
+             aria-labelledby="headingOne">
+          <div class="panel-body">
+            <div *ngFor="let item of category.items">
+              <h4>{{item.title}}</h4>
+              <div>{{item.description}}</div>
+              <rating [(ngModel)]="item.rating"
+                      (click)="rate(item)"
+                      fullIcon="★"
+                      emptyIcon="☆">
+              </rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
