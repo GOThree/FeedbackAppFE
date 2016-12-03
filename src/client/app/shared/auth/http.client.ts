@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
+import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpClient {
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private router: Router) {}
 
   createAuthorizationHeader(headers: Headers) {
     if(localStorage.getItem('access_token')) {
@@ -12,13 +15,23 @@ export class HttpClient {
     }
   }
 
+  intercept(observable: Observable<Response>): Observable<Response> {
+    return observable.catch((err) => { 
+      if (err.status == 401) {
+        localStorage.removeItem('access_token');
+        this.router.navigate(['/login']);
+        console.log('caught an error');
+        return Observable.throw('Authentication token has expired');
+      }
+      return observable;
+    });
+  }
+
   get(url: string) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.createAuthorizationHeader(headers);
-    return this.http.get(url, {
-      headers: headers
-    });
+    return this.intercept(this.http.get(url, { headers: headers }))
   }
 
   post(url: string, data: any, headers?: Headers) {
@@ -28,8 +41,6 @@ export class HttpClient {
     }
 
     this.createAuthorizationHeader(headers);
-    return this.http.post(url, data, {
-      headers: headers
-    });
+    return this.intercept(this.http.post(url, data, { headers: headers }))
   }
 }
