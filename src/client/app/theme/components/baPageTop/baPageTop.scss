@@ -1,13 +1,12 @@
 @import '../../../../scss/conf/conf';
 
 .page-top {
-  background-color: $sidebar;
+  background-color: black;
   position: fixed;
-  z-index: 904;
+  z-index: 1000;
   box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);
   height: 66px;
   width: 100%;
-  min-width: $resMin;
   padding: 0 32px 0 40px;
 
   .dropdown-toggle::after {
@@ -22,7 +21,7 @@
 }
 
 a.al-logo {
-  color: $sidebar-text;
+  color: white;
   display: block;
   font-size: 24px;
   font-family: $font-family;
@@ -30,16 +29,16 @@ a.al-logo {
   float: left;
   outline: none !important;
   line-height: 60px;
+  text-decoration: none;
 
   span {
-    color: $primary;
+    color: #00abff;
   }
 }
 
 .user-profile {
   float: right;
-  min-width: 230px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .al-user-profile {
