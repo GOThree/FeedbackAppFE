@@ -1,3 +1,16 @@
 <main>
-  <router-outlet></router-outlet>
+  <ba-page-top *ngIf="userService.isLoggedIn()"></ba-page-top>
+  <div class="al-main">
+    <div class="al-content">
+      <ba-content-top></ba-content-top>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <footer class='al-footer clearfix' *ngIf="userService.isLoggedIn()">
+    <div class='al-footer-main clearfix'>
+      <div class='al-copy'>&copy; <a href='http://gothree.io'>GoThree</a> 2016</div>
+    </div>
+  </footer>
 </main>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Config } from './shared/index';
 import './operators';
+import { UserService } from './shared/auth/user.service';
 
 @Component({
   moduleId: module.id,
@@ -10,5 +11,5 @@ import './operators';
 })
 
 export class AppComponent {
-  constructor() { }
+  constructor(private userService: UserService) { }
 }
