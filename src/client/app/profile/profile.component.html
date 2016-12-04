@@ -12,12 +12,12 @@
 </div>
 <div class='row'>
   <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword(changePasswordForm.value)">
-    <div class="form-group" [ngClass]="{'has-error':!changePasswordForm.controls['oldPassword'].valid && changePasswordForm.controls['oldPassword'].touched}">
+    <div class="form-group" [ngClass]="{'has-error':!changePasswordForm.controls['currentPassword'].valid && changePasswordForm.controls['currentPassword'].touched}">
       <div class="input-group">
         <span class="input-group-addon" >@</span>
-        <input class="form-control" type="password" placeholder="Current Password" [formControl]="changePasswordForm.controls['oldPassword']">
+        <input class="form-control" type="password" placeholder="Current Password" [formControl]="changePasswordForm.controls['currentPassword']">
       </div>
-      <div i18n class="alert alert-danger" *ngIf="!changePasswordForm.controls['oldPassword'].valid && changePasswordForm.controls['oldPassword'].touched && changePasswordForm.controls['oldPassword'].errors.required">You must enter your current password.</div>
+      <div i18n class="alert alert-danger" *ngIf="!changePasswordForm.controls['currentPassword'].valid && changePasswordForm.controls['currentPassword'].touched && changePasswordForm.controls['currentPassword'].errors.required">You must enter your current password.</div>
     </div>
     <div class="form-group" [ngClass]="{'has-error':!changePasswordForm.controls['newPassword'].valid && changePasswordForm.controls['newPassword'].touched}">
       <div class="input-group">
