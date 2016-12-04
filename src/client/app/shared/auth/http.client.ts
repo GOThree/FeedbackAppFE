@@ -24,7 +24,6 @@ export class HttpClient {
         return Observable.throw('Authentication token has expired');
       }
       let body = err.json();
-      console.log(body);
       let errorMessage = '';
       Object.keys(body).forEach(key => errorMessage += body[key][0]);
       return Observable.throw(errorMessage);

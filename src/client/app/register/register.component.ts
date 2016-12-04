@@ -45,7 +45,7 @@ export class RegisterComponent {
         this.router.navigate(['/login']);
       },
       err => {
-        this.toastr.error(errorMessage)
+        this.toastr.error(err)
       }
     );
   }

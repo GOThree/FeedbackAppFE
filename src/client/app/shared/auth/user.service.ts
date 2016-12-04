@@ -71,11 +71,11 @@ export class UserService {
       })
   }
 
-  changePassword(oldPassword: string, newPassword: string) {
+  changePassword(currentPassword: string, newPassword: string) {
     return this.http
       .post(
         ENDPOINTS.changePassword, 
-        JSON.stringify({ oldPassword, newPassword }), 
+        JSON.stringify({ currentPassword, newPassword }), 
       )
   }
   

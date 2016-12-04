@@ -20,13 +20,13 @@ export class ProfileComponent {
      this.familyName = localStorage.getItem('family_name');
      this.email = localStorage.getItem('email');
      this.changePasswordForm = fb.group({
-       'oldPassword' : [null, Validators.compose([Validators.required])],
+       'currentPassword' : [null, Validators.compose([Validators.required])],
        'newPassword' : [null, Validators.compose([Validators.required])],
      })
   }
 
   changePassword(value: any) {
-    this.userService.changePassword(value.oldPassword, value.newPassword).
+    this.userService.changePassword(value.currentPassword, value.newPassword).
       subscribe(
        data => {
          this.toastr.success('Change Password Successful')
