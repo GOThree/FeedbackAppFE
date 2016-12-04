@@ -1,6 +1,14 @@
 <div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
      [ngClass]="{scrolled: isScrolled}">
   <a routerLink="/dashboard" class="al-logo clearfix"><span>FeedbackApp</span></a>
+  <ul class="menu">
+    <li>
+      <a i18n href="#">Menu</a>
+    </li>
+    <li>
+      <a i18n href="#">Dashboard</a>
+    </li>
+  </ul>
   <div class="user-profile clearfix">
     <div class="dropdown al-user-profile">
       <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
