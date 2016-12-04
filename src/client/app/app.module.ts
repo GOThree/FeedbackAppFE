@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
-import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ForgotPasswordModule } from './forgotpassword/forgotpassword.module';
@@ -25,7 +25,7 @@ import {NgaModule} from './theme/nga.module';
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
     NgaModule,
-    HomeModule,
+    DashboardModule,
     LoginModule,
     RegisterModule,
     ReviewModule,
