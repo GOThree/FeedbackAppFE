@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Config } from './shared/index';
 import './operators';
 import { UserService } from './shared/auth/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,5 +12,10 @@ import { UserService } from './shared/auth/user.service';
 })
 
 export class AppComponent {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+
+  logout (){
+    this.userService.logout();
+    this.router.navigate(['/']);
+  }
 }

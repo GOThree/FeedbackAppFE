@@ -16,7 +16,6 @@ import { HttpClient } from './shared/auth/http.client';
 
 import { AuthGuard } from './shared/auth/auth.guard';
 import {ReviewModule} from './review/review.module';
-import {NgaModule} from './theme/nga.module';
 
 @NgModule({
   imports: [
@@ -24,7 +23,6 @@ import {NgaModule} from './theme/nga.module';
     HttpModule,
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
-    NgaModule,
     DashboardModule,
     LoginModule,
     RegisterModule,
