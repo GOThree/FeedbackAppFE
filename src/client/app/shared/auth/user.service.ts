@@ -83,6 +83,10 @@ export class UserService {
     localStorage.removeItem('access_token');
   }
 
+  name() : string {
+    return localStorage.getItem('name');
+  }
+
   isLoggedIn() {
     return !!localStorage.getItem('access_token');
   }
