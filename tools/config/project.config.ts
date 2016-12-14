@@ -26,8 +26,6 @@ export class ProjectConfig extends SeedConfig {
        {src: 'ng2-toastr/bundles/ng2-toastr.min.css', inject: true},
        {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
       {src: 'font-awesome/css/font-awesome.min.css', inject: true},
-      // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
-      // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
     // Add `local` third-party libraries to be injected/bundled.
@@ -41,10 +39,6 @@ export class ProjectConfig extends SeedConfig {
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
 
     this.addPackageBundles({
-      name: 'chartist',
-      path: 'node_modules/chartist/dist/chartist.js'
-    });
-    this.addPackageBundles({
       name: 'bootstrap',
       path: 'node_modules/bootstrap/dist/js/bootstrap.min.js'
     });
@@ -55,6 +49,10 @@ export class ProjectConfig extends SeedConfig {
     this.addPackageBundles({
       name: 'ng2-toastr',
       path: 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'
+    });
+    this.addPackageBundles({
+      name: 'ng2-rating',
+      path: 'node_modules/ng2-rating/index.js'
     });
   }
 
