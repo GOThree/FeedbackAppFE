@@ -5,11 +5,8 @@ import { ENDPOINTS } from '../../global.vars'
 
 @Injectable()
 export class UserService {
-  private loggedIn = false;
 
-  constructor(private http: HttpClient) {
-    this.loggedIn = !!localStorage.getItem('auth_token');
-  }
+  constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
     let headers = new Headers();
@@ -32,7 +29,6 @@ export class UserService {
         let body_as_json = res.json()
         if (res.ok) {
           localStorage.setItem('access_token', body_as_json.access_token);
-          this.loggedIn = true;
         }
         return body_as_json
       });
@@ -74,13 +70,24 @@ export class UserService {
         }
       })
   }
+
+  changePassword(currentPassword: string, newPassword: string) {
+    return this.http
+      .post(
+        ENDPOINTS.changePassword, 
+        JSON.stringify({ currentPassword, newPassword }), 
+      )
+  }
   
   logout() {
-    localStorage.removeItem('auth_token');
-    this.loggedIn = false;
+    localStorage.removeItem('access_token');
+  }
+
+  name() : string {
+    return localStorage.getItem('name');
   }
 
   isLoggedIn() {
-    return this.loggedIn;
+    return !!localStorage.getItem('access_token');
   }
 }

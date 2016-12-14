@@ -6,15 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
-import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ForgotPasswordModule } from './forgotpassword/forgotpassword.module';
 import { SharedModule } from './shared/shared.module';
+import { ProfileModule } from './profile/profile.module';
 import { HttpClient } from './shared/auth/http.client';
 
 import { AuthGuard } from './shared/auth/auth.guard';
-import {ReviewModule} from "./review/review.module";
+import {ReviewModule} from './review/review.module';
 
 @NgModule({
   imports: [
@@ -22,11 +23,12 @@ import {ReviewModule} from "./review/review.module";
     HttpModule,
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
-    HomeModule,
+    DashboardModule,
     LoginModule,
     RegisterModule,
     ReviewModule,
-    ForgotPasswordModule
+    ForgotPasswordModule,
+    ProfileModule
   ],
   declarations: [AppComponent],
   providers: [

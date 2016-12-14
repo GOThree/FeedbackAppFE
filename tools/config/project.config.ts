@@ -17,9 +17,6 @@ export class ProjectConfig extends SeedConfig {
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
-    this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-rating': 'node_modules/ng2-rating/index.js'});
-
-    this.mergeObject(this.SYSTEM_CONFIG.paths, {'ng2-toastr': 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'});
 
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
@@ -29,8 +26,6 @@ export class ProjectConfig extends SeedConfig {
        {src: 'ng2-toastr/bundles/ng2-toastr.min.css', inject: true},
        {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
       {src: 'font-awesome/css/font-awesome.min.css', inject: true},
-      // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
-      // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
     // Add `local` third-party libraries to be injected/bundled.
@@ -42,6 +37,23 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+
+    this.addPackageBundles({
+      name: 'bootstrap',
+      path: 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+    });
+    this.addPackageBundles({
+      name: 'lodash',
+      path: 'node_modules/lodash/lodash.min.js'
+    });
+    this.addPackageBundles({
+      name: 'ng2-toastr',
+      path: 'node_modules/ng2-toastr/bundles/ng2-toastr.min.js'
+    });
+    this.addPackageBundles({
+      name: 'ng2-rating',
+      path: 'node_modules/ng2-rating/index.js'
+    });
   }
 
 }

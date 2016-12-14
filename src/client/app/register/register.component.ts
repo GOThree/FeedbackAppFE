@@ -45,10 +45,7 @@ export class RegisterComponent {
         this.router.navigate(['/login']);
       },
       err => {
-        let body = err.json()
-        let errorMessage = ''
-        Object.keys(body).forEach(key => errorMessage += body[key][0])
-        this.toastr.error(errorMessage)
+        this.toastr.error(err)
       }
     );
   }

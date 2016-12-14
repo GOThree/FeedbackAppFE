@@ -1,11 +1,11 @@
 import { Route } from '@angular/router';
-import { HomeComponent } from './index';
+import { DashboardComponent } from './index';
 import { AuthGuard } from '../shared/auth/auth.guard'
 
-export const HomeRoutes: Route[] = [
+export const DashboardRoutes: Route[] = [
   { 
     path: '',
-    component: HomeComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard]
   }
 ];
